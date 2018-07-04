@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}
+    Welcome
+{% endblock %}
+
+{% block user %}
+    <h3 style="color: white;text-align: right;">Hello, {{ user.username }}</h3>
+    <a href="/logout"><h4 style="color: white;text-align: right;">Signout</h4></a>
+{% endblock %}
+
+{% block content %}
+    <b>Immediate Openings at Verizon</b>
+     <ul>
+        {% for g in nopenings %}
+            <li><b>Opening id</b> - {{ g.job_Id }}: <b>Skillset</b> -{{ g.job_Skill_set}}: <b>Number of openings</b> -{{ g.job_Openings}}&nbsp;&nbsp;&nbsp;<b><a>Apply</a></b></li>
+            <b>Decription</b>>- {{ g.job_Desc }}
+            <hr>
+        {% endfor %}
+    </ul>
+{% endblock %}
